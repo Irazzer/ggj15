@@ -14,12 +14,15 @@ public class UIController : MonoBehaviour
     public GameObject StartPanel;
     public GameObject HowToPanel;
     public GameObject InGamePanel;
+    public GameObject FPC;
+    public GameObject MainCamera;
 
     // public enum for controlling the views
-    public enum UIView { Start = 0, HowTo = 1, InGame = 2 };
+    public enum UIView { Start = 0, HowTo = 1, InGame = 2, NoView = 3 };
     private UIView activeView;
     private UIView previousView;
-
+    private MouseLook mLook;
+    private MouseLook mLookCam;
     // dictionary for the method delegates
     private Dictionary<int, UIViewDelegate> methods;
 
@@ -36,15 +39,25 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
+        mLook = FPC.GetComponent<MouseLook>();
+        mLookCam = MainCamera.GetComponent<MouseLook>();
         methods = new Dictionary<int, UIViewDelegate>();
         registerUIViews();
     }
 
+    void Update()
+    {
+        if (activeView == UIView.NoView && Input.GetKey(KeyCode.Escape))
+        {
+            CallUIMethod(UIView.InGame);
+        }
+    }
     private void registerUIViews()
     {
         Register(UIView.Start, HandleUIStart);
         Register(UIView.HowTo, HandleUIHowTo);
         Register(UIView.InGame, HandleUIInGame);
+        Register(UIView.NoView, HandleUINoView);
     }
 
     private void Register(UIView ui, UIViewDelegate processMessage)
@@ -80,6 +93,12 @@ public class UIController : MonoBehaviour
     private void HandleUIInGame(bool activate)
     {
         InGamePanel.SetActive(activate);
+        togglePause();
+    }
+
+    private void HandleUINoView(bool activate)
+    {
+        
     }
 
     /*
@@ -95,22 +114,42 @@ public class UIController : MonoBehaviour
     }
     public void OnClickStart()
     {
+        CallUIMethod(UIView.NoView);
+        FPC.SetActive(true);
     }
     public void OnClickHowTo()
     {
-        CallUIMethod(UIController.UIView.HowTo);
+        CallUIMethod(UIView.HowTo);
     }
     public void OnClickExit()
     {
-        
+        Application.Quit();
     }
 
 
-    //// DEBUG
+
+    private void togglePause()
+    {
+        if (Time.timeScale == 0f)
+        {
+            Time.timeScale = 1f;
+            mLook.enabled = true;
+            mLookCam.enabled = true;
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            mLook.enabled = false;
+            mLookCam.enabled = false;
+        }
+    }
+
+    //// DEBUG ONLY
     public void DebugOnClickFog()
     {
         RenderSettings.fog = !RenderSettings.fog;
     }
+    
    
   
 

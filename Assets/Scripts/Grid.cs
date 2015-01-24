@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -50,14 +51,25 @@ public class Grid : MonoBehaviour {
     
     private void instantiateGrid()
     {
+        System.Random rnd = new System.Random();
+        int rotationY = 0;
         foreach (int mPart in grid)
         {
+            int val = rnd.Next(1, 5);
+            switch (val)
+            {
+                case 1: { rotationY = 0; break;}
+                case 2: { rotationY = 90; break;}
+                case 3: { rotationY = 180; break;}
+                case 4: { rotationY = 270; break;}
+            }
+
             switch (mPart)
             {
-                case 1: { changeTriggerName(Instantiate(MazePartI, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
-                case 2: { changeTriggerName(Instantiate(MazePartT, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
-                case 3: { changeTriggerName(Instantiate(MazePartL, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
-                case 4: { changeTriggerName(Instantiate(MazePartX, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
+                case 1: { changeTriggerName(Instantiate(MazePartI, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.Euler(0, rotationY , 0)) as GameObject); break; }
+                case 2: { changeTriggerName(Instantiate(MazePartT, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.Euler(0, rotationY, 0)) as GameObject); break; }
+                case 3: { changeTriggerName(Instantiate(MazePartL, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.Euler(0, rotationY, 0)) as GameObject); break; }
+                case 4: { changeTriggerName(Instantiate(MazePartX, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.Euler(0, rotationY, 0)) as GameObject); break; }
             }
 
             col++;
@@ -81,7 +93,7 @@ public class Grid : MonoBehaviour {
         for (int i = 0; i < grid.Count; i++)
         {
             int temp = grid[i];
-            int randomIndex = Random.Range(0, grid.Count);
+            int randomIndex = UnityEngine.Random.Range(0, grid.Count);
             grid[i] = grid[randomIndex];
             grid[randomIndex] = temp;
         }

@@ -22,8 +22,15 @@ public class TurnTrigger : MonoBehaviour {
 
     private void TurnIt(GameObject go)
     {
-        // TODO: random rotation
-        go.transform.Rotate(new Vector3(0, 90, 0)); 
+        System.Random rnd = new System.Random();
+        int val = rnd.Next(0, 2);
+        int rot = 90;
+        if (val == 0)
+        {
+            rot *= -1;
+        }else{
+        }
+        go.transform.Rotate(new Vector3(0, rot , 0)); 
     }
 
 
