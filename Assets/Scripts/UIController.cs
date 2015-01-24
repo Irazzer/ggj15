@@ -43,8 +43,8 @@ public class UIController : MonoBehaviour
     private void registerUIViews()
     {
         Register(UIView.Start, HandleUIStart);
-        Register(UIView.HowTo, HandleUIHost);
-        Register(UIView.InGame, HandleUIJoin);
+        Register(UIView.HowTo, HandleUIHowTo);
+        Register(UIView.InGame, HandleUIInGame);
     }
 
     private void Register(UIView ui, UIViewDelegate processMessage)
@@ -73,11 +73,11 @@ public class UIController : MonoBehaviour
     {
         StartPanel.SetActive(activate);
     }
-    private void HandleUIHost(bool activate)
+    private void HandleUIHowTo(bool activate)
     {
         HowToPanel.SetActive(activate);
     }
-    private void HandleUIJoin(bool activate)
+    private void HandleUIInGame(bool activate)
     {
         InGamePanel.SetActive(activate);
     }
@@ -102,6 +102,7 @@ public class UIController : MonoBehaviour
     }
     public void OnClickExit()
     {
+        RenderSettings.fog = true;
     }
    
   
