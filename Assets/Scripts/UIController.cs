@@ -102,7 +102,14 @@ public class UIController : MonoBehaviour
     }
     public void OnClickExit()
     {
-        RenderSettings.fog = true;
+        
+    }
+
+
+    //// DEBUG
+    public void DebugOnClickFog()
+    {
+        RenderSettings.fog = !RenderSettings.fog;
     }
    
   
