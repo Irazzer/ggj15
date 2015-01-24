@@ -6,12 +6,16 @@ public class TurnTrigger : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         //TurnMazePart.Instance.TurnIt();
-        Debug.Log(gameObject.name + "  " + gameObject.transform.parent.name);
         int collNum = 0;
         int.TryParse(gameObject.name, out collNum);
+        gameObject.SetActive(false);
         foreach (int i in getMovingParts(collNum))
         {
             TurnIt(Grid.Instance.MazeParts[i]);
+            foreach (Transform child in Grid.Instance.MazeParts[i].transform)
+            {
+                if (child.name == i + "") { child.gameObject.SetActive(true); }
+            }
         }
         
     }
@@ -20,7 +24,6 @@ public class TurnTrigger : MonoBehaviour {
     {
         // TODO: random rotation
         go.transform.Rotate(new Vector3(0, 90, 0)); 
-        //go.transform.position = new Vector3(go.transform.position.x, go.transform.position.y + 3, go.transform.position.z);
     }
 
 

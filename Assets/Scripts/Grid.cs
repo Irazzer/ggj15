@@ -15,10 +15,10 @@ public class Grid : MonoBehaviour {
     }
 
     //public variables
-    public GameObject MazePart01; // 30% probability
-    public GameObject MazePart02; // 30% probability
-    public GameObject MazePart03; // 30% probability
-    public GameObject MazePart04; // 10% probability
+    public GameObject MazePartI; // 20% probability
+    public GameObject MazePartT; // 35% probability
+    public GameObject MazePartL; // 30% probability
+    public GameObject MazePartX; // 15% probability
     public GameObject spawnPoint;
     public List<GameObject> MazeParts { get; set; }
     // private variables
@@ -36,10 +36,10 @@ public class Grid : MonoBehaviour {
         grid = new List<int>();
         for(int i = 0; i < 100; i++)
         {
-            if (i < 30) grid.Add(1);
-            if (i >= 30 && i < 60) grid.Add(2);
-            if (i >= 60 && i < 90) grid.Add(3);
-            if (i >= 90) grid.Add(4);
+            if (i < 20) grid.Add(1);
+            if (i >= 20 && i < 55) grid.Add(2);
+            if (i >= 55 && i < 85) grid.Add(3);
+            if (i >= 85) grid.Add(4);
         }
         MazeParts = new List<GameObject>();
         spPos = spawnPoint.transform.position;
@@ -54,10 +54,10 @@ public class Grid : MonoBehaviour {
         {
             switch (mPart)
             {
-                case 1: { changeTriggerName(Instantiate(MazePart01, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
-                case 2: { changeTriggerName(Instantiate(MazePart02, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
-                case 3: { changeTriggerName(Instantiate(MazePart03, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
-                case 4: { changeTriggerName(Instantiate(MazePart04, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
+                case 1: { changeTriggerName(Instantiate(MazePartI, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
+                case 2: { changeTriggerName(Instantiate(MazePartT, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
+                case 3: { changeTriggerName(Instantiate(MazePartL, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
+                case 4: { changeTriggerName(Instantiate(MazePartX, new Vector3(spPos.x + addX, spPos.y + 1.5f, spPos.z + addZ), Quaternion.identity) as GameObject); break; }
             }
 
             col++;
