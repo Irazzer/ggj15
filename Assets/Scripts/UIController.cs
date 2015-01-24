@@ -15,17 +15,13 @@ public class UIController : MonoBehaviour
     public GameObject HowToPanel;
     public GameObject InGamePanel;
     public GameObject EndText;
-    public GameObject FPC;
-    public GameObject MainCamera;
-    public GameObject PlayerSpawnPoint;
-    public GameObject FogTrigger;
+    
 
     // public enum for controlling the views
     public enum UIView { Start = 0, HowTo = 1, InGame = 2, NoView = 3 };
     private UIView activeView;
     private UIView previousView;
-    private MouseLook mLook;
-    private MouseLook mLookCam;
+   
     // dictionary for the method delegates
     private Dictionary<int, UIViewDelegate> methods;
 
@@ -42,8 +38,6 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        mLook = FPC.GetComponent<MouseLook>();
-        mLookCam = MainCamera.GetComponent<MouseLook>();
         methods = new Dictionary<int, UIViewDelegate>();
         registerUIViews();
     }
@@ -102,7 +96,7 @@ public class UIController : MonoBehaviour
     private void HandleUIInGame(bool activate)
     {
         InGamePanel.SetActive(activate);
-        togglePause();
+        GameController.Instance.TogglePause();
     }
 
     private void HandleUINoView(bool activate)
@@ -124,8 +118,7 @@ public class UIController : MonoBehaviour
     public void OnClickStart()
     {
         CallUIMethod(UIView.NoView);
-        FPC.transform.position = PlayerSpawnPoint.transform.position;
-        FPC.SetActive(true);
+        GameController.Instance.OnStartGame();
     }
     public void OnClickHowTo()
     {
@@ -144,26 +137,7 @@ public class UIController : MonoBehaviour
     public void OnClickStartOver()
     {
         BackToPrevious();
-        FogTrigger.SetActive(true);
-        Grid.Instance.ResetGrid();
-        FPC.transform.position = PlayerSpawnPoint.transform.position;
-    }
-
-
-    private void togglePause()
-    {
-        if (Time.timeScale == 0f)
-        {
-            Time.timeScale = 1f;
-            mLook.enabled = true;
-            mLookCam.enabled = true;
-        }
-        else
-        {
-            Time.timeScale = 0f;
-            mLook.enabled = false;
-            mLookCam.enabled = false;
-        }
+        GameController.Instance.OnStartOver();
     }
 
     //// DEBUG ONLY
