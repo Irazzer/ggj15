@@ -11,7 +11,15 @@ public class TurnTrigger : MonoBehaviour {
         //gameObject.SetActive(false);
         foreach (int i in getMovingParts(collNum))
         {
-             TurnIt(Grid.Instance.MazeParts[i]);
+            try
+            {
+                TurnIt(Grid.Instance.MazeParts[i]);
+            }
+            catch(Exception e) 
+            {
+                Debug.Log(e.Message);
+            }
+            
 
             /*foreach (Transform child in Grid.Instance.MazeParts[i].transform)
             {
