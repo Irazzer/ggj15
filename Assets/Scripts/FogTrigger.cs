@@ -2,9 +2,12 @@
 using System.Collections;
 
 public class FogTrigger : MonoBehaviour {
+
     void OnTriggerEnter(Collider other)
     {
         RenderSettings.fog = !RenderSettings.fog;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
+
+ 
 }

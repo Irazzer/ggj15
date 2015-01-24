@@ -21,6 +21,7 @@ public class Grid : MonoBehaviour {
     public GameObject MazePartL; // 30% probability
     public GameObject MazePartX; // 15% probability
     public GameObject spawnPoint;
+    public GameObject Parent;
     public List<GameObject> MazeParts { get; set; }
     // private variables
     private List<int> grid;
@@ -102,10 +103,28 @@ public class Grid : MonoBehaviour {
     private void changeTriggerName(GameObject go)
     {
         MazeParts.Add(go);
+        go.transform.parent = Parent.transform;
         foreach (Transform child in go.transform)
         {
             child.name = partCount.ToString();
         }
         partCount++;
+    }
+
+    public void ResetGrid()
+    {
+        foreach (Transform child in Parent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        addX = 0;
+        addZ = 0;
+        row = 0;
+        col = 0;
+        partCount = 0;
+        MazeParts = new List<GameObject>();
+        RenderSettings.fog = false;
+        shuffle();
+        instantiateGrid();
     }
 }

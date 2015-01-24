@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class TurnTrigger : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
-        //TurnMazePart.Instance.TurnIt();
         int collNum = 0;
         int.TryParse(gameObject.name, out collNum);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         foreach (int i in getMovingParts(collNum))
         {
-            TurnIt(Grid.Instance.MazeParts[i]);
-            foreach (Transform child in Grid.Instance.MazeParts[i].transform)
+             TurnIt(Grid.Instance.MazeParts[i]);
+
+            /*foreach (Transform child in Grid.Instance.MazeParts[i].transform)
             {
                 if (child.name == i + "") { child.gameObject.SetActive(true); }
-            }
+            }*/
         }
         
     }
@@ -48,7 +49,7 @@ public class TurnTrigger : MonoBehaviour {
         if (north >= 0) { toTurn.Add(north); }
         if (south <= 99) { toTurn.Add(south); }
         if (westL >= 0) { toTurn.Add(west); }
-        if (eastL <= 9) { toTurn.Add(east); }
+        if (eastL <= 9 && eastL > 0) { toTurn.Add(east); }
 
         return toTurn;
     }

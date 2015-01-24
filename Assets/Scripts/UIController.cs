@@ -14,8 +14,11 @@ public class UIController : MonoBehaviour
     public GameObject StartPanel;
     public GameObject HowToPanel;
     public GameObject InGamePanel;
+    public GameObject EndText;
     public GameObject FPC;
     public GameObject MainCamera;
+    public GameObject PlayerSpawnPoint;
+    public GameObject FogTrigger;
 
     // public enum for controlling the views
     public enum UIView { Start = 0, HowTo = 1, InGame = 2, NoView = 3 };
@@ -50,6 +53,12 @@ public class UIController : MonoBehaviour
         if (activeView == UIView.NoView && Input.GetKey(KeyCode.Escape))
         {
             CallUIMethod(UIView.InGame);
+        }
+
+        if (EndText.activeSelf && Input.GetKey(KeyCode.E))
+        {
+            Debug.Log("GAME END");
+            EndText.SetActive(false);
         }
     }
     private void registerUIViews()
@@ -115,6 +124,7 @@ public class UIController : MonoBehaviour
     public void OnClickStart()
     {
         CallUIMethod(UIView.NoView);
+        FPC.transform.position = PlayerSpawnPoint.transform.position;
         FPC.SetActive(true);
     }
     public void OnClickHowTo()
@@ -126,6 +136,18 @@ public class UIController : MonoBehaviour
         Application.Quit();
     }
 
+    public void ShowEndText()
+    {
+        EndText.SetActive(true);
+    }
+
+    public void OnClickStartOver()
+    {
+        BackToPrevious();
+        FogTrigger.SetActive(true);
+        Grid.Instance.ResetGrid();
+        FPC.transform.position = PlayerSpawnPoint.transform.position;
+    }
 
 
     private void togglePause()
