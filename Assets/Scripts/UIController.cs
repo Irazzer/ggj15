@@ -141,6 +141,12 @@ public class UIController : MonoBehaviour
         GameController.Instance.OnStartOver();
     }
 
+    public void OnClickEndGame()
+    {
+        CallUIMethod(UIView.Start);
+        GameController.Instance.OnEndGame();
+    }
+
     //// DEBUG ONLY
     public void DebugOnClickFog()
     {

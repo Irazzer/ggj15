@@ -55,6 +55,18 @@ public class GameController : MonoBehaviour {
 
     public void OnStartOver()
     {
+        resetGame();
+    }
+
+    public void OnEndGame()
+    {
+        resetGame();
+        FPC.SetActive(false);
+        StartCamera.SetActive(true);
+    }
+
+    private void resetGame()
+    {
         FogTrigger.SetActive(true);
         DirectionalLight.SetActive(true);
         Grid.Instance.ResetGrid();
