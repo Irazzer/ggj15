@@ -214,3 +214,59 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+/Assets/Horror_Music/Music_Read_Me.txt
+/Assets/Horror_Music/accents/(accent) Panic.mp3
+/Assets/Horror_Music/effects/Breakdown.wav
+/Assets/Horror_Music/effects/Error 2.wav
+/Assets/Horror_Music/effects/Error.wav
+/Assets/Horror_Music/effects/Glitching (can loop).wav
+/Assets/Horror_Music/effects/Stab.wav
+/Assets/Horror_Music/effects/TV.wav
+/Assets/Horror_Music/effects/growl.wav
+/Assets/Horror_Music/effects/locked.wav
+/Assets/Horror_Music/loops/(loop) Circus Tent.mp3
+/Assets/Horror_Music/loops/(loop) Corrupted Dream 39.mp3
+/Assets/Horror_Music/loops/(loop) Feeling Watched.mp3
+/Assets/Horror_Music/loops/(loop) Fighting Fear.mp3
+/Assets/Horror_Music/loops/(loop) The Black House.mp3
+/Assets/Horror_Music/songs/Abuse (Bedroom Remix).mp3
+/Assets/Horror_Music/songs/Behind the Call.mp3
+/Assets/Horror_Music/songs/Deleted Not Dead.mp3
+/Assets/Horror_Music/songs/How to Scale a Catfish.mp3
+/Assets/Horror_Music/songs/Lines.mp3
+/Assets/Horror_Music/songs/Llaw Der.mp3
+/Assets/Horror_Music/songs/Lost.mp3
+/Assets/Horror_Music/songs/Motion.mp3
+/Assets/Horror_Music/songs/Somthing.mp3
+/Assets/Horror_Music/songs/The Circus Tent Secret.mp3
+/Assets/Horror_Music/songs/The Merchant.mp3
+/Assets/Horror_Music/songs/Void (Retry).mp3
+/Assets/Horror_Music/songs/Void.mp3
+/Build_1800/GlobalGameJam15_Build001.exe
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/Assembly-CSharp-firstpass.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/Assembly-CSharp.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/Assembly-UnityScript-firstpass.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/Boo.Lang.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/Mono.Security.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/System.Core.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/System.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/UnityEngine.UI.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/UnityEngine.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Managed/mscorlib.dll
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/1.0/DefaultWsdlHelpGenerator.aspx
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/1.0/machine.config
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/2.0/Browsers/Compat.browser
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/2.0/machine.config
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/2.0/settings.map
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/2.0/web.config
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/browscap.ini
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/config
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/etc/mono/mconfig/config.xml
+/Build_1800/GlobalGameJam15_Build001_Data/Mono/mono.dll
+/Build_1800/GlobalGameJam15_Build001_Data/PlayerConnectionConfigFile
+/Build_1800/GlobalGameJam15_Build001_Data/Resources/unity default resources
+/Build_1800/GlobalGameJam15_Build001_Data/Resources/unity_builtin_extra
+/Build_1800/GlobalGameJam15_Build001_Data/mainData
+/Build_1800/GlobalGameJam15_Build001_Data/output_log.txt
+/Build_1800/GlobalGameJam15_Build001_Data/sharedassets0.assets

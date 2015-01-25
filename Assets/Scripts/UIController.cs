@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     public GameObject CreditsPanel;
     public GameObject EndPanel;
     public GameObject EndText;
+    public GameObject StartText;
     
 
     // public enum for controlling the views
@@ -122,6 +123,7 @@ public class UIController : MonoBehaviour
     {
         CallUIMethod(UIView.NoView);
         GameController.Instance.OnStartGame();
+        StartText.SetActive(true);
     }
     public void OnClickHowTo()
     {

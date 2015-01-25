@@ -43,11 +43,16 @@ public class GameController : MonoBehaviour {
             UIController.Instance.CallUIMethod(UIController.UIView.End);
             UIController.Instance.EndText.SetActive(false);
         }
+        if (UIController.Instance.StartText.activeSelf && Input.GetKey(KeyCode.E))
+        {
+            UIController.Instance.StartText.SetActive(false);
+        }
 	}
 
 
     public void OnStartGame()
     {
+        Screen.showCursor = false;
         StartCamera.SetActive(false);
         FPC.transform.position = PlayerSpawnPoint.transform.position;
         FPC.SetActive(true);
@@ -61,12 +66,14 @@ public class GameController : MonoBehaviour {
     public void OnEndGame()
     {
         resetGame();
+        Screen.showCursor = true;
         FPC.SetActive(false);
         StartCamera.SetActive(true);
     }
 
     private void resetGame()
     {
+      
         FogTrigger.SetActive(true);
         DirectionalLight.SetActive(true);
         Grid.Instance.ResetGrid();
@@ -81,12 +88,14 @@ public class GameController : MonoBehaviour {
             Time.timeScale = 1f;
             mLook.enabled = true;
             mLookCam.enabled = true;
+            Screen.showCursor = false;
         }
         else
         {
             Time.timeScale = 0f;
             mLook.enabled = false;
             mLookCam.enabled = false;
+            Screen.showCursor = true;
         }
     }
 }
