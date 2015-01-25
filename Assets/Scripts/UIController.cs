@@ -14,11 +14,12 @@ public class UIController : MonoBehaviour
     public GameObject StartPanel;
     public GameObject HowToPanel;
     public GameObject InGamePanel;
+    public GameObject CreditsPanel;
     public GameObject EndText;
     
 
     // public enum for controlling the views
-    public enum UIView { Start = 0, HowTo = 1, InGame = 2, NoView = 3 };
+    public enum UIView { Start = 0, HowTo = 1, InGame = 2, Credits = 3, NoView = 4 };
     public UIView activeView {get; set;}
     private UIView previousView;
    
@@ -42,15 +43,12 @@ public class UIController : MonoBehaviour
         registerUIViews();
     }
 
-    void Update()
-    {
-     
-    }
     private void registerUIViews()
     {
         Register(UIView.Start, HandleUIStart);
         Register(UIView.HowTo, HandleUIHowTo);
         Register(UIView.InGame, HandleUIInGame);
+        Register(UIView.Credits, HandleUICredits);
         Register(UIView.NoView, HandleUINoView);
     }
 
@@ -95,6 +93,13 @@ public class UIController : MonoBehaviour
         
     }
 
+    private void HandleUICredits(bool activate)
+    {
+        CreditsPanel.SetActive(activate);
+    }
+
+    
+
     /*
      * Click Event Handler
      */
@@ -118,6 +123,11 @@ public class UIController : MonoBehaviour
     public void OnClickExit()
     {
         Application.Quit();
+    }
+
+    public void OnClickCredits()
+    {
+        CallUIMethod(UIView.Credits);
     }
 
     public void ShowEndText()
