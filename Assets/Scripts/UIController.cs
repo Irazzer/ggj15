@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
 
     // public enum for controlling the views
     public enum UIView { Start = 0, HowTo = 1, InGame = 2, NoView = 3 };
-    private UIView activeView;
+    public UIView activeView {get; set;}
     private UIView previousView;
    
     // dictionary for the method delegates
@@ -44,16 +44,7 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        if (activeView == UIView.NoView && Input.GetKey(KeyCode.Escape))
-        {
-            CallUIMethod(UIView.InGame);
-        }
-
-        if (EndText.activeSelf && Input.GetKey(KeyCode.E))
-        {
-            Debug.Log("GAME END");
-            EndText.SetActive(false);
-        }
+     
     }
     private void registerUIViews()
     {
