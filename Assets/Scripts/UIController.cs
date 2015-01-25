@@ -15,11 +15,12 @@ public class UIController : MonoBehaviour
     public GameObject HowToPanel;
     public GameObject InGamePanel;
     public GameObject CreditsPanel;
+    public GameObject EndPanel;
     public GameObject EndText;
     
 
     // public enum for controlling the views
-    public enum UIView { Start = 0, HowTo = 1, InGame = 2, Credits = 3, NoView = 4 };
+    public enum UIView { Start = 0, HowTo = 1, InGame = 2, Credits = 3, End = 4, NoView = 5 };
     public UIView activeView {get; set;}
     private UIView previousView;
    
@@ -49,6 +50,7 @@ public class UIController : MonoBehaviour
         Register(UIView.HowTo, HandleUIHowTo);
         Register(UIView.InGame, HandleUIInGame);
         Register(UIView.Credits, HandleUICredits);
+        Register(UIView.End, HandleUIEnd);
         Register(UIView.NoView, HandleUINoView);
     }
 
@@ -96,6 +98,11 @@ public class UIController : MonoBehaviour
     private void HandleUICredits(bool activate)
     {
         CreditsPanel.SetActive(activate);
+    }
+
+    private void HandleUIEnd(bool activate)
+    {
+        EndPanel.SetActive(activate);
     }
 
     

@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour {
 
         if (UIController.Instance.EndText.activeSelf && Input.GetKey(KeyCode.E))
         {
-            Debug.Log("GAME END");
+            UIController.Instance.CallUIMethod(UIController.UIView.End);
             UIController.Instance.EndText.SetActive(false);
         }
 	}
