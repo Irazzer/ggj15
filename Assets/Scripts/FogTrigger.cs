@@ -4,7 +4,6 @@ using System.Collections;
 public class FogTrigger : MonoBehaviour
 {
     public Material NightSky;
-    private bool fog = false;
     void OnTriggerEnter(Collider other)
     {
         
